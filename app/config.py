@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_url: str = (
-        "postgresql+asyncpg://resumeapp_user:mysecretpassword@localhost:5432/resumeapp"
+        "postgresql+asyncpg://resumeapp_user:mysecretpassword@db:5432/resumeapp"
     )
     secret_key: str = "your-secret-key"
     algorithm: str = "HS256"

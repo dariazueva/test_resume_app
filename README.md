@@ -59,10 +59,6 @@ ALGORITHM=HS256
 docker-compose up -d --build
 ```
 Приложение доступно: http://localhost:8000
-#### Выполните миграции:
-```bash
-docker-compose exec web alembic upgrade head
-```
 #### API Документация:
 Swagger - http://localhost:8000/docs
 Redoc - http://localhost:8000/redoc
