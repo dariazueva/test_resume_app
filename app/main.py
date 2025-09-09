@@ -9,11 +9,6 @@ from starlette.responses import JSONResponse
 app = FastAPI(title="Resume API", version="1.0.0")
 
 
-async def create_tables():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-
-
 logger.add(
     "info.log",
     format="Log: [{extra[log_id]}:{time} - {level} - {message}]",
@@ -41,8 +36,3 @@ async def log_middleware(request: Request, call_next):
 app.include_router(user.router)
 app.include_router(resume.router)
 app.include_router(ai.router)
-
-
-@app.on_event("startup")
-async def startup_event():
-    await create_tables()

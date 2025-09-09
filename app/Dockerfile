@@ -7,16 +7,18 @@ ENV HOME=/home/fast \
     PYTHONUNBUFFERED=1
 
 RUN mkdir -p $APP_HOME \
- && groupadd -r fast\
+ && groupadd -r fast \
  && useradd -r -g fast fast
 
-WORKDIR $HOME
+WORKDIR $APP_HOME
 
-COPY app app
-ADD alembic.ini .
+COPY app/requirements.txt .
+COPY app/ .
+COPY alembic.ini .
+COPY migrations/ migrations/
 
 RUN pip install --upgrade pip \
- && pip install -r app/requirements.txt \
- && chown -R fast:fast .
+ && pip install -r requirements.txt \
+ && chown -R fast:fast $HOME
 
 USER fast
