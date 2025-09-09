@@ -1,7 +1,6 @@
 from datetime import timedelta
 from typing import Annotated
 
-import jwt
 from app.config import settings
 from app.db import get_db
 from app.models.user import User

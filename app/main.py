@@ -1,6 +1,5 @@
 from uuid import uuid4
 
-from app.db import Base, engine
 from app.routers import ai, resume, user
 from fastapi import FastAPI, Request
 from loguru import logger
